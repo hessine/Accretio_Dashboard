@@ -1,66 +1,72 @@
-import * as React from 'react'
-import Modal from './modal'
-import * as classNames from 'classnames'
+import * as React from "react";
+import * as classNames from "classnames";
+import { useMappedState, valueSetter } from "react-use-mapped-state";
 
-interface ModalProperties {
-    id: string,
-    onRunImage?: (name: string) => void
+import { Modal } from "./modal";
+
+interface ModalProps {
+  id: string;
+  onRunImage?: (name: string) => void;
 }
 
-interface ModalState {
-    imageName: string
-    isValid: boolean
+interface IModalInitialMappedState {
+  imageName: string;
+  isValid: boolean;
 }
 
-export class NewContainerDialog extends React.Component<ModalProperties, ModalState> {
+const ModalInitialMappedState: IModalInitialMappedState = {
+  imageName: "",
+  isValid: false
+};
 
-    constructor(props: ModalProperties) {
-        super(props)
+export const NewContainerDialog: React.FC<ModalProps> = ({
+  id,
+  onRunImage
+}) => {
+  const [{ imageName, isValid }, valueSetter] = useMappedState(
+    ModalInitialMappedState
+  );
 
-        this.state = {
-            imageName: '',
-            isValid: false
-        }
-    }
+  const onImageNameChange = (event: any) => {
+    const { value: name } = event.target;
+    valueSetter("imageName", name);
+    valueSetter("isValid", name.length > 0);
+  };
 
-    onImageNameChange(e: any) {
-        const name = e.target.value
+  const runImage = () => {
+    if (isValid && onRunImage) onRunImage(imageName);
 
-        this.setState({
-            imageName: name,
-            isValid: name.length > 0
-        })
-    }
+    return isValid;
+  };
 
-    runImage() {
-        if (this.state.isValid && this.props.onRunImage)
-            this.props.onRunImage(this.state.imageName)
-            
-        return this.state.isValid
-    }
+  const inputClass = classNames({
+    "form-group": true,
+    "has-error": !isValid
+  });
 
-    render() {
-
-        let inputClass = classNames({
-            "form-group": true,
-            "has-error": !this.state.isValid
-        })
-
-        return (
-            <Modal id="newContainerModal" buttonText="Run" title="Create a new container" onButtonClicked={this.runImage.bind(this)}>
-                <form className="form-horizontal">
-                    <div className={inputClass}>
-                        <label htmlFor="imageName" className="col-sm-3 control-label">Image name</label>
-                        <div className="col-sm-9">
-                            <input type="text" 
-                                className="form-control" 
-                                onChange={this.onImageNameChange.bind(this)}
-                                id="imageName" 
-                                placeholder="e.g mongodb:latest"/>
-                        </div>
-                    </div>
-                </form>
-            </Modal>
-        )
-    }
-}
+  return (
+    <Modal
+      id="newContainerModal"
+      buttonText="Run"
+      title="Create a new container"
+      onButtonClicked={runImage}
+    >
+      <form className="form-horizontal">
+        <div className={inputClass}>
+          <label htmlFor="imageName" className="col-sm-3 control-label">
+            Image name
+          </label>
+          <div className="col-sm-9">
+            <input
+              type="text"
+              className="form-control"
+              onChange={onImageNameChange}
+              id="imageName"
+              placeholder="e.g mongodb:latest"
+            />
+          </div>
+        </div>
+      </form>
+    </Modal>
+  );
+};

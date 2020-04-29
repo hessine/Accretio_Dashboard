@@ -1,73 +1,70 @@
-import * as React from 'react'
-import { Container, ContainerListItem } from './containerListItem'
-import { ContainerList } from './containerList'
-import * as _ from 'lodash'
-import * as io from 'socket.io-client'
-import { NewContainerDialog } from './newContainerModal'
-import { DialogTrigger } from './dialogTrigger'
+import * as React from "react";
+import * as _ from "lodash";
+import * as io from "socket.io-client";
 
-let socket = io.connect()
+import styled from "styled-components";
+import { Route, BrowserRouter as Router, Redirect } from "react-router-dom";
 
-class AppState {
-    containers?: Container[]
-    stoppedContainers?: Container[]
-}
+import NavBar from "./NavBar";
+import Dashboard from "./Dashboard";
+import { NewContainerDialog } from "./newContainerModal";
+import Upload from "./Upload";
 
-export class AppComponent extends React.Component<{}, AppState> {
+const Header = styled.div`
+  background: Black;
+  width: 100vw;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 25px;
+  padding-right: 25px;
 
-    constructor() {
-        super()
-        this.state = {
-            containers: [],
-            stoppedContainers: []
-        }
+  img {
+    width: 100px;
+    height: 100px;
+    margin-left: 10%;
+  }
+`;
 
-        socket.on('containers.list', (containers: any) => {
+const AppTitle = styled.h1`
+  color: white;
+  font-size: 45px;
+`;
 
-            const partitioned = _.partition(containers, (c: any) => c.State == "running")
+const socket = io.connect();
 
-            this.setState({
-                containers: partitioned[0].map(this.mapContainer),
-                stoppedContainers: partitioned[1].map(this.mapContainer)
-            })
-        })
-
-        socket.on('image.error', (args: any) => {
-            alert(args.message.json.message)
-        })
-    }
-
-    mapContainer(container:any): Container {
-        return {
-            id: container.Id,
-            name: _.chain(container.Names)
-                .map((n: string) => n.substr(1))
-                .join(", ")
-                .value(),
-            state: container.State,
-            status: `${container.State} (${container.Status})`,
-            image: container.Image
-        }
-    }
-
-    componentDidMount() {
-        socket.emit('containers.list')
-    }
-
-    onRunImage(name: String) {
-        socket.emit('image.run', { name: name })
-    }
-
-    render() {
-        return (
-            <div className="container">
-                <h1 className="page-header">Docker Dashboard</h1>
-                <DialogTrigger id="newContainerModal" buttonText="New container" />
-
-                <ContainerList title="Running" containers={this.state.containers} />
-                <ContainerList title="Stopped containers" containers={this.state.stoppedContainers} />
-                <NewContainerDialog id="newContainerModal" onRunImage={this.onRunImage.bind(this)} />
-            </div>
-        )
-    }
-}
+export const AppComponent: React.FC<{}> = () => {
+  const onRunImage = (name: String): void => {
+    socket.emit("image.run", { name });
+  };
+  return (
+    <Router>
+      <div>
+        <Header>
+          <AppTitle>Accretio</AppTitle>
+          
+        </Header>
+        <NavBar />
+        <Route exact path="/" component={() => <Redirect to="/dashboard" />} />
+        <Route exact path="/dashboard" component={() => <Dashboard />} />
+        {<Route
+          exact
+          path="/new/container"
+          component={() => <p>New Container just trigger model</p>}
+        /> }
+        <Route
+          exact
+          path="/cluster/start"
+          component={() => <Upload/>} />
+        
+        <Route
+          exact
+          path="/cluster/create"
+          component={() => <p>Cluster Create</p>}
+        />
+        <NewContainerDialog id="newContainerModal" onRunImage={onRunImage} />
+      </div>
+    </Router>
+  );
+};
