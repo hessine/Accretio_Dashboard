@@ -6,7 +6,7 @@ import { withRouter } from "react-router-dom";
 import NavItem from "./NavItem";
 
 const NavWrapper = styled.div`
-  background: black;
+  background: deepskyblue	;
   width: 100vw;
   height: 50px;
   color: white;
