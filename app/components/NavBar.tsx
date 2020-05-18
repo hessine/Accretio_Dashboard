@@ -6,16 +6,14 @@ import { withRouter } from "react-router-dom";
 import NavItem from "./NavItem";
 
 const NavWrapper = styled.div`
-  background: deepskyblue	;
+  background: black;
   width: 100vw;
   height: 50px;
   color: white;
   display: flex;
-
   &:first-child {
     margin-left: 20px;
   }
-
   a,
   a:visited,
   a:active {
@@ -34,9 +32,11 @@ export interface NavOption {
 
 const navOptions: NavOptions = [
   { icon: null, title: "Dashboard", path: "/dashboard" },
-  { icon: null, title: "New Container", path: "#newContainerModal" },
-   { icon: null, title: "Data", path: "/cluster/start" },
-  
+  { icon: null, title: "stopped", path: "/stop" },
+  { icon: null, title: "Data", path: "/file" },
+  { icon: null, title: "Test", path: "/post" },
+  { icon: null, title: "About", path: "/about" },
+  { icon: null, title: "Trainnig", path: "/try" }
 ];
 
 const NavBar: React.FC<{ location?: any }> = props => {

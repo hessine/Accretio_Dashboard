@@ -3,7 +3,8 @@ import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faTrafficLight,
-  IconDefinition
+  IconDefinition,
+  faPowerOff
 } from "@fortawesome/free-solid-svg-icons";
 
 interface IStartStopIconProps {
@@ -24,7 +25,6 @@ const Background = styled.div<{ type: "start" | "stop" }>`
   justify-content: center;
   align-items: center;
   margin-left: 10px;
-
   > svg {
     color: white;
     font-size: 20px;
@@ -46,7 +46,7 @@ const StartStopIcon: React.FC<IStartStopIconProps> = ({
       onClick={handleAction}
       type={type}
     >
-      <FontAwesomeIcon title={title} icon={icon ? icon : faTrafficLight} />
+      <FontAwesomeIcon title={title} icon={icon ? icon : faPowerOff} />
     </Background>
   );
 };

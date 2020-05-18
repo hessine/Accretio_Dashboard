@@ -3,8 +3,8 @@ import * as _ from "lodash";
 import * as io from "socket.io-client";
 import { useMappedState } from "react-use-mapped-state";
 
-import { Container } from "./ContainerListItem";
-import { ContainerList } from "./ContainerList";
+import { Container } from "./ContainerListItem2";
+import { CL } from "./CL";
 import DropdownHeader from "./DropdownHeader";
 
 interface DashboardProps {}
@@ -20,7 +20,7 @@ const initialState: DashboardState = {
 
 const socket = io.connect();
 
-export const Dashboard: React.FC<DashboardProps> = () => {
+export const Stopped: React.FC<DashboardProps> = () => {
   const [{ containers, stoppedContainers }, valueSetter] = useMappedState(
     initialState
   );
@@ -77,11 +77,10 @@ export const Dashboard: React.FC<DashboardProps> = () => {
   return (
     <div>
   
-        <ContainerList containers={containers} />
-    
+  <CL containers={stoppedContainers} />    
     
     </div>
   );
 };
 
-export default Dashboard;
+export default Stopped;

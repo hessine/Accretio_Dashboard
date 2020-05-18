@@ -78,7 +78,7 @@ interface IContainerHeaderProps {
 
 const ContainerHeader = styled.div<IContainerHeaderProps>`
   
-background-color: rgb(149, 222, 149) ;
+background-color: rgb(245, 76, 76) ;
 min-height: 70px;
   display: flex;
   justify-content: space-between;
@@ -181,7 +181,7 @@ const ContainerListItemInitialState: IContainerListItemInitialState = {
 
 const SubHeaderWrapper = styled.div`
   display: flex;
-  color: red;
+  color: white;
   align-items: center;
   margin: 2px;
   margin-left: 15px;

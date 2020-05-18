@@ -2,7 +2,7 @@
 import * as React from "react";
 import styled from "styled-components";
 
-import { Container, ContainerListItem } from "./ContainerListItem";
+import { Container, ContainerListItem } from "./ContainerListItem2";
 
 interface ContainerListProps {
   containers: Container[];
@@ -19,7 +19,7 @@ const ContainerListWrapper = styled.div<IContainerListWrapperProps>`
   grid-gap: 1px;
 `;
 
-export const ContainerList: React.FC<ContainerListProps> = ({ containers }) => {
+export const CL: React.FC<ContainerListProps> = ({ containers }) => {
   return (
     <ContainerListWrapper hasContainers={containers.length !== 0}>
       {containers.length === 0 && <h1>No containers to show</h1>}

@@ -7,8 +7,12 @@ import { Route, BrowserRouter as Router, Redirect } from "react-router-dom";
 
 import NavBar from "./NavBar";
 import Dashboard from "./Dashboard";
+import Stopped from"./Stopped";
 import { NewContainerDialog } from "./newContainerModal";
 import Upload from "./Upload";
+import Try from "./Try";
+import Post from "./Post";
+import File from "./File";
 
 const Header = styled.div`
   background: Black;
@@ -19,7 +23,6 @@ const Header = styled.div`
   align-items: center;
   padding-left: 25px;
   padding-right: 25px;
-
   img {
     width: 100px;
     height: 100px;
@@ -48,6 +51,13 @@ export const AppComponent: React.FC<{}> = () => {
         <NavBar />
         <Route exact path="/" component={() => <Redirect to="/dashboard" />} />
         <Route exact path="/dashboard" component={() => <Dashboard />} />
+        <Route exact path="/stop" component={() => <Stopped />} />
+        <Route exact path="/about" component={() => <Upload/>} />
+        <Route exact path="/post" component={() => <Post/>} />
+        <Route exact path="/file" component={() => <File/>} />
+        <Route exact path="/try" component={() => <Try/>} />
+
+
         {<Route
           exact
           path="/new/container"
