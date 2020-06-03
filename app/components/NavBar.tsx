@@ -33,10 +33,12 @@ export interface NavOption {
 const navOptions: NavOptions = [
   { icon: null, title: "Dashboard", path: "/dashboard" },
   { icon: null, title: "stopped", path: "/stop" },
-  { icon: null, title: "Data", path: "/file" },
-  { icon: null, title: "Test", path: "/post" },
+  { icon: null, title: "Data", path: "/post" },
+  { icon: null, title: "Test", path: "/file" },
+  { icon: null, title: "Environment", path: "/env" },
   { icon: null, title: "About", path: "/about" },
   { icon: null, title: "Trainnig", path: "/try" }
+
 ];
 
 const NavBar: React.FC<{ location?: any }> = props => {

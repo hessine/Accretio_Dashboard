@@ -2,7 +2,7 @@ import * as React from 'react';
 import axios from 'axios';
 
 
-const API_URL = 'http://localhost:5642/files-list';
+const API_URL = 'http://localhost:6789/files-list';
 
 
 
@@ -28,7 +28,7 @@ class Try extends React.Component{
     onClickHandler = () => {
       const data = new FormData()
       data.append('file', this.state.selectedFile)
-      axios.post("http://localhost:5642/upload", data, { 
+      axios.post("http://localhost:6789/upload", data, { 
          // receive two    parameter endpoint url ,form data
      })
      .then(res => { // then print response status
@@ -39,10 +39,11 @@ class Try extends React.Component{
   async postData(value) {
 
 
-    fetch('http://localhost:5642/back', {
+    fetch('http://localhost:6789/back', {
       method: 'POST',
-      headers: {
-          'Content-Type': 'application/json'
+      headers:{
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Accept': 'application/json'
       },
      
 

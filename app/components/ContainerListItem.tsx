@@ -406,7 +406,8 @@ export const ContainerListItem: React.FC<Container> = ({
       <ContainerHeaderWrapper>
         <ContainerHeader>
           <SubHeaderWrapper>
-            <span>{name}</span>
+       
+            <span>{name.slice(0, 30) + "..."}</span>
             <StartStopIcon
               handleAction={onActionButtonClick}
               type={isRunning ? "stop" : "start"}
@@ -469,9 +470,8 @@ export const ContainerListItem: React.FC<Container> = ({
                         Type,
                         Source,
                         Destination,
-                        Mode,
-                        RW,
-                        Propagation
+                      
+                       
                       }) => (
                         <>
                           <p>
@@ -492,20 +492,7 @@ export const ContainerListItem: React.FC<Container> = ({
                 : "  N/A"}
             </MountsWrapper>
           </span>
-          <span>
-            <p>
-              <strong>Ports:</strong>
-            </p>
-            <PortsWrapper>
-              {ports.length > 0
-                ? ports.map((portObj: Port) => {
-                    return Object.keys(portObj).map((portData: keyof Port) => {
-                      return <span style={{ margin: "3px" }}>{portData}</span>;
-                    });
-                  })
-                : "  N/A"}
-            </PortsWrapper>
-          </span>
+         
           <span>
             <p>
               <strong>Command:</strong>

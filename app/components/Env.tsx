@@ -6,7 +6,7 @@ const API_URL = 'http://localhost:6789/files-list';
 
 
 
-class Post extends React.Component{
+class Env extends React.Component{
 	  state = {
       users: [] ,
       selectedFile: null
@@ -14,10 +14,7 @@ class Post extends React.Component{
             
            
     };
-     refreshPage() {
-      window.location.reload(false);
-    }
-   
+
     onChangeHandler=event=>{
       this.setState({
         selectedFile: event.target.files[0],
@@ -28,14 +25,13 @@ class Post extends React.Component{
     onClickHandler = () => {
       const data = new FormData()
       data.append('file', this.state.selectedFile)
-      axios.post("http://localhost:6789/upload", data, { 
+      axios.post("http://localhost:5642/upload", data, { 
          // receive two    parameter endpoint url ,form data
      })
      .then(res => { // then print response status
       console.log(res.statusText)
    })
   }
-  
 
   async postData(value) {
 
@@ -53,34 +49,9 @@ class Post extends React.Component{
             email: "john@example.com"
         }
     })
-    
-    
 });
   }
 
-  async deleteData(value) {
-
-
-    fetch('http://localhost:6789/delete', {
-      method: 'POST',
-      headers: {
-          'Content-Type': 'application/json'
-      },
-     
-
-      body: JSON.stringify({
-        user: {
-            name: value,
-            email: "john@example.com"
-        }
-
-    })
-   
-
-});
-
-  }
-  
   componentDidMount() {
     const url = `${API_URL}`;
     axios.get(url).then(response => response.data)
@@ -89,61 +60,45 @@ class Post extends React.Component{
       console.log(this.state.users)
      })
   }
-
-
   render() {
 
     return (
-      <div>
+   
+    <div>
       <main className="container my-5">
         <h1 className="text-primary text-center">Files</h1>
-        
-        <input type="file" name="file" className="km-btn-file"  onChange={this.onChangeHandler}/>
-
-        <button type="button" className="btn btn-success btn-block" onClick={this.onClickHandler}>Upload</button> 
-
-
-
-
+    
+       
   <table className="table table-hover table-dark">
   <thead>
   <tr>
     <th scope="col">#</th>
-    <th scope="col">Script</th>
-    <th scope="col">path</th>
-
-    <th scope="col">size</th>
-
-    <th scope="col">filetype</th>
-    <th scope="col">    uploadDate</th>
-
+    <th scope="col">Task</th>
     <th scope="col">Executer</th>
-    <th scope="col">Delete</th>
-  
+
+   
   </tr>
   </thead>
   <tbody>
-  {this.state.users.map((user) => (
+ 
   <tr>
 
     <th scope="row">1</th>
-    <td> {user.name}</td>
-    <td> {user.path}</td>
-    <td> {user.size}</td>
-    <td> {user.filetype}</td>
-    <td> {user.uploadDate}</td>
+    <td> Install Nginx</td>
+    
+   
  
-   <td> <button  onClick= {() => this.postData( user.name)}> Run  </button> </td>
-   <td> <button  onClick= {() => this.deleteData( user.name)}> Delete  </button> </td>
+   <td> <button> Run  </button> </td>
   
   </tr>
-    ))}
+   
   
   </tbody>
   </table>
   
       </main>
       </div>
+    
     
   
     
@@ -153,7 +108,7 @@ class Post extends React.Component{
     
 
 
-export default Post ;
+export default Env ;
 
 
 

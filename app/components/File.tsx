@@ -1,7 +1,7 @@
 import * as React from 'react';
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5642/files-list';
+const API_URL = 'http://localhost:6789/files-list';
 
 
 
@@ -19,7 +19,7 @@ class File extends React.Component{
   async postData(value) {
 
 
-    fetch('http://localhost:5642/back', {
+    fetch('http://localhost:6789/back', {
       method: 'POST',
       headers: {
           'Content-Type': 'application/json'

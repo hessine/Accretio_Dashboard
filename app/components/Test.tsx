@@ -20,7 +20,7 @@ class Test extends React.Component<IAppProps, IAppState> {
 
   async postData() {
     try {
-        const response = await fetch('http://localhost:5642/form', {
+        const response = await fetch('http://localhost:6789/form', {
           method: "post",
           mode:"no-cors",
           headers: new Headers({
@@ -39,7 +39,7 @@ class Test extends React.Component<IAppProps, IAppState> {
       }
 
   componentDidMount() {
-    axios.get(`http://localhost:5642/api/test`)
+    axios.get(`http://localhost:6789/api/test`)
       .then(res => {
         const data = res.data;
         const persons = data.data;

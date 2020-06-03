@@ -13,6 +13,9 @@ import Upload from "./Upload";
 import Try from "./Try";
 import Post from "./Post";
 import File from "./File";
+import Env from "./Env";
+import Login from "./Login";
+
 
 const Header = styled.div`
   background: Black;
@@ -49,13 +52,15 @@ export const AppComponent: React.FC<{}> = () => {
           
         </Header>
         <NavBar />
-        <Route exact path="/" component={() => <Redirect to="/dashboard" />} />
+        <Route exact path="/" component={() => <Login/>} />
         <Route exact path="/dashboard" component={() => <Dashboard />} />
         <Route exact path="/stop" component={() => <Stopped />} />
         <Route exact path="/about" component={() => <Upload/>} />
         <Route exact path="/post" component={() => <Post/>} />
         <Route exact path="/file" component={() => <File/>} />
         <Route exact path="/try" component={() => <Try/>} />
+        <Route exact path="/env" component={() => <Env/>} />
+    
 
 
         {<Route
