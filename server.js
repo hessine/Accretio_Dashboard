@@ -11,18 +11,15 @@ const stream = require("stream");
 const morgan = require("morgan");
 const Docker = require('dockerode');
 var exec = require ('child_process').exec ;
-var readDirectory = require('./readDirectory');
 const fs = require('fs');
-const testFolder = './up/';
 const responsedelay = 50;   // miliseconds
 const rootPath = `files`;
-var moment = require('moment');
 
 
 
 
 
-const PORT = 5642;
+const PORT = 6789;
 
 const openLogStreams = new Map();
 app.use(morgan("dev"));
@@ -94,7 +91,8 @@ app.get('/files-list', function(req, res)
             files.forEach(function(value, index, array)
             {
                 fs.stat(`${folder}/${value}` , function(err, stats)
-                {
+                {  
+
                     let filesize;
                     try { filesize = ConvertSize(stats.size); }
                     catch(err) { filesize = 0; }
@@ -105,8 +103,13 @@ app.get('/files-list', function(req, res)
                         path: folder,
                         size: filesize,
                         filetype: stats.isFile() ? 'file' : 'folder',
-                        uploadDate: stats.birthtime 
+                        uploadDate: stats.birthtime ,
+                       
+
+
+
                     });
+
                     
                     if(index == (array.length - 1))
                         setTimeout(function() {res.send(JSON.stringify(response)).status(200);}, responsedelay);
@@ -236,113 +239,27 @@ var res = str1.concat(str2);
 
 
 
-
-app.post('/zaab', function(request, response){
+app.post('/delete', function(request, response){
  
-  var test = request.body.user.name ;
-  console.log (test);
-  exec(test, (error, stdout, stderr) => { console.log(stdout); })
-})
- 
-   
+  var str1 = "./files/";
+  var str2 = request.body.user.name ;
+  var res = str1.concat(str2);
 
-     
-      
-     
-       
-     
-      
-      
+  fs.unlink(res, function(err) {
+    if (err) throw err;
   
-  
+    console.log('file deleted');
     
+  });
 
 
-app.post('/form',function(req, res) {
-
-
-  console.log(req.body.cmd)
-   name = "sh tt.sh";
-  
-  exec(name,function(err,stdout,stderr){
-
-    console.log(stdout);
-    
-      })
-      res.send('done')
-    })
-    
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//
-app.get('/script', function (req, res,next) {
-
-  exec('sh tt.sh',function(err,stdout,stderr){
-
-console.log(stdout);
-
-  })
-  res.send('done')
 })
 
 
-function getDirectoryContent(req, res, next) {
-  fs.readdir(testFolder , function (err, images) {
-    if (err) { return next(err); }
-    res.locals.filenames = images;
-    next();
-  });
-}
-app.get('/api/test', getDirectoryContent, function(req, res) {
 
-  res.json(res.locals.filenames);
-});
-
-
-app.get('/api/logs',function(req,res){
-  readDirectory.readDirectory(function(logFiles){
-     res.json({files : logFiles});
- });
-});
-app.get('/api/nodes', function(req, res) {
-    
-  var docker = new Docker();
  
-  docker.listNodes(function(err, nodes) {
-      res.json(nodes);
-  });
-});
-/*
-fs.readdir('./up/', function (err, files) {
- if (err)
-    throw err;
- for (var index in files) {
-    console.log(files[index]);
- }
- });
- */
-app.get('/api/hello', (req, res, next) => {
-  
-       res.json('test');
    
- 
-});
+
 
 
 const refreshContainers = () => {
