@@ -2,24 +2,14 @@ pipeline {
     agent any
     stages {
 
-        stage('Using Docker Credentials') {
-            steps {
-                echo 'LOGGING INTO DOCKER................'
-                sh'cat ~/my_creds.txt | docker login --username hessine --password-stdin'
-            }
-        }
+      
 
-        // stage('Build Dev Image For Testing') {
-        //     steps {
-        //         sh 'docker build -t hessine/dock-hand-dev -f Dockerfile.dev .'
-        //     }
-        // }
+      
+    stage('Clone repository') {
+        /* Cloning the Repository to our Workspace */
 
-        // stage('Run Web Tests') {
-        //     steps {
-        //         sh 'docker run hessine/dock-hand-dev npm run test-docker'
-        //     }
-        // }
+        checkout scm
+    } 
 
         stage('Build Prod Image') {
             steps {
