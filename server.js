@@ -14,6 +14,7 @@ var exec = require ('child_process').exec ;
 const fs = require('fs');
 const responsedelay = 50;   // miliseconds
 const rootPath = `files`;
+const rootPath2 = `Micro`;
 
 
 
@@ -129,7 +130,91 @@ app.get('/files-list', function(req, res)
         }
     });
 });
+///////////////////Microservice//////////////////
+// upload handler
+var uploadStorage2 = multer.diskStorage(
+  {
+      destination: function (req, file, cb)
+      {
+          // cb(null, filespath);
+          cb(null, rootPath2);
+      },
+      filename: function (req, file, cb)
+      {
+          cb(null, file.originalname);    // file name must be verified before upload and if the file name is repeatitive then rename it
+      }
+  });
 
+  var upload = multer({ storage: uploadStorage2 });
+
+app.post('/upload2', upload.any(), function(req, res)
+{
+    res.status(200).send();
+    console.log(req.files);
+    console.log('file upload...');
+});
+
+app.get('/Micro-list', function(req, res)
+{
+    let folder = rootPath2;
+    let response = [];
+
+    if(req.query.path)
+        folder = req.query.path;
+    
+    if(!fs.existsSync(folder))
+        folder = rootPath;
+    
+    fs.readdir(folder, function(err, files)
+    {
+        if(err)
+        {
+            console.log(err);
+            res.send('').status(200);
+        }
+        else if(files.length > 0)
+        {
+            files.forEach(function(value, index, array)
+            {
+                fs.stat(`${folder}/${value}` , function(err, stats)
+                {  
+
+                    let filesize;
+                    try { filesize = ConvertSize(stats.size); }
+                    catch(err) { filesize = 0; }
+                    
+                    response.push(
+                    {
+                        name: value,
+                        path: folder,
+                        size: filesize,
+                        filetype: stats.isFile() ? 'file' : 'folder',
+                        uploadDate: stats.birthtime ,
+                       
+
+
+
+                    });
+
+                    
+                    if(index == (array.length - 1))
+                        setTimeout(function() {res.send(JSON.stringify(response)).status(200);}, responsedelay);
+                });
+            });
+        }
+        else
+        {
+            // when directory is empty
+            response.push(
+            {
+                path: folder,
+                filetype: 'folder',
+            });
+
+            res.send(JSON.stringify(response)).status(200);
+        }
+    });
+});
 ////////////////////Trainning////////////////////////
 // all type of files except images will explored here
 app.get('/files', function(req, res)
@@ -224,7 +309,7 @@ function ConvertSize(number)
 
 
 
-app.post('/back', function(request, response){
+app.post('/rund', function(request, response){
  
   var str1 = "sh ./files/";
   var str2 = request.body.user.name ;
@@ -235,17 +320,28 @@ var res = str1.concat(str2);
   exec(res, (error, stdout, stderr) => { console.log(stdout); })
 })
  
+app.post('/runM', function(request, response){
+ 
+  var str1 = "sh ./Micro/";
+  var str2 = request.body.user.name ;
+ 
+ 
+var res = str1.concat(str2);
+  
+  exec(res, (error, stdout, stderr) => { console.log(stdout); })
+})
    
 
 
 
-app.post('/delete', function(request, response){
+app.post('/deleteD', function(request, response){
  
   var str1 = "./files/";
   var str2 = request.body.user.name ;
   var res = str1.concat(str2);
 
   fs.unlink(res, function(err) {
+    
     if (err) throw err;
   
     console.log('file deleted');
@@ -256,6 +352,22 @@ app.post('/delete', function(request, response){
 })
 
 
+app.post('/deleteM', function(request, response){
+ 
+  var str1 = "./Micro/";
+  var str2 = request.body.user.name ;
+  var res = str1.concat(str2);
+
+  fs.unlink(res, function(err) {
+    
+    if (err) throw err;
+  
+    console.log('file deleted');
+    
+  });
+
+
+})
 
  
    

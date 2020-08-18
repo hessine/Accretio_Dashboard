@@ -33,11 +33,11 @@ export interface NavOption {
 const navOptions: NavOptions = [
   { icon: null, title: "Dashboard", path: "/dashboard" },
   { icon: null, title: "stopped", path: "/stop" },
+  { icon: null, title: "Microservice", path: "/micro" },
   { icon: null, title: "Data", path: "/post" },
-  { icon: null, title: "Test", path: "/file" },
-  { icon: null, title: "Environment", path: "/env" },
-  { icon: null, title: "About", path: "/about" },
-  { icon: null, title: "Trainnig", path: "/try" }
+  
+
+  
 
 ];
 

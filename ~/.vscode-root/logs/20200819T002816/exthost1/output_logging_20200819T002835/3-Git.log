@@ -1,0 +1,175 @@
+Looking for git in: git
+Using git 2.17.1 from git
+> git rev-parse --show-toplevel
+> git rev-parse --git-dir
+Open repository: /home/hessine/Bureau/github/Accretio_Dashboard
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git check-ignore -v -z --stdin
+> git check-ignore -v -z --stdin
+> git check-ignore -v -z --stdin
+> git show :app/components/containerListItem.tsx
+> git ls-files --stage -- /home/hessine/Bureau/github/Accretio_Dashboard/app/components/containerListItem.tsx
+> git cat-file -s ebcfd6a6257b23819f5a24350d59e45d7b76c666
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git check-ignore -v -z --stdin
+> git show :app/components/CL2.tsx
+> git ls-files --stage -- /home/hessine/Bureau/github/Accretio_Dashboard/app/components/CL2.tsx
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git show :app/components/ContainerList.tsx
+> git ls-files --stage -- /home/hessine/Bureau/github/Accretio_Dashboard/app/components/ContainerList.tsx
+> git cat-file -s 6a72b67725169c27deb96d910b7e767845e64ff0
+> git show :app/components/containerList.tsx
+> git ls-files --stage -- /home/hessine/Bureau/github/Accretio_Dashboard/app/components/containerList.tsx
+> git cat-file -s cbcbf3b236b685a18f328b1eb2fd0ba76a717904
+> git show :app/components/ContainerList.tsx
+> git ls-files --stage -- /home/hessine/Bureau/github/Accretio_Dashboard/app/components/ContainerList.tsx
+> git cat-file -s 6a72b67725169c27deb96d910b7e767845e64ff0
+> git show :app/components/containerList.tsx
+> git ls-files --stage -- /home/hessine/Bureau/github/Accretio_Dashboard/app/components/containerList.tsx
+> git cat-file -s cbcbf3b236b685a18f328b1eb2fd0ba76a717904
+> git show :app/components/CL2.tsx
+> git ls-files --stage -- /home/hessine/Bureau/github/Accretio_Dashboard/app/components/CL2.tsx
+> git show :app/components/ContainerListItem.tsx
+> git ls-files --stage -- /home/hessine/Bureau/github/Accretio_Dashboard/app/components/ContainerListItem.tsx
+> git cat-file -s b72df1f32b398d84c1afa754b64f7eb87cb9bbd9
+> git show :app/components/CL2.tsx
+> git ls-files --stage -- /home/hessine/Bureau/github/Accretio_Dashboard/app/components/CL2.tsx
+> git show :app/components/ContainerListItem.tsx
+> git ls-files --stage -- /home/hessine/Bureau/github/Accretio_Dashboard/app/components/ContainerListItem.tsx
+> git cat-file -s b72df1f32b398d84c1afa754b64f7eb87cb9bbd9
+> git show :app/components/ContainerListItem2.tsx
+> git ls-files --stage -- /home/hessine/Bureau/github/Accretio_Dashboard/app/components/ContainerListItem2.tsx
+> git cat-file -s da7938dd3f3d494a15d52a1d191e1b67d8f6e80c
+> git show :app/components/containerList.tsx
+> git ls-files --stage -- /home/hessine/Bureau/github/Accretio_Dashboard/app/components/containerList.tsx
+> git cat-file -s cbcbf3b236b685a18f328b1eb2fd0ba76a717904
+> git show :app/components/CL2.tsx
+> git ls-files --stage -- /home/hessine/Bureau/github/Accretio_Dashboard/app/components/CL2.tsx
+> git show :app/components/containerListItem.tsx
+> git ls-files --stage -- /home/hessine/Bureau/github/Accretio_Dashboard/app/components/containerListItem.tsx
+> git cat-file -s ebcfd6a6257b23819f5a24350d59e45d7b76c666
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git show :app/components/ContainerList.tsx
+> git ls-files --stage -- /home/hessine/Bureau/github/Accretio_Dashboard/app/components/ContainerList.tsx
+> git cat-file -s 6a72b67725169c27deb96d910b7e767845e64ff0
+> git show :app/components/containerList.tsx
+> git ls-files --stage -- /home/hessine/Bureau/github/Accretio_Dashboard/app/components/containerList.tsx
+> git cat-file -s cbcbf3b236b685a18f328b1eb2fd0ba76a717904
+> git show :app/components/ContainerList.tsx
+> git ls-files --stage -- /home/hessine/Bureau/github/Accretio_Dashboard/app/components/ContainerList.tsx
+> git cat-file -s 6a72b67725169c27deb96d910b7e767845e64ff0
+> git check-ignore -v -z --stdin
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git show :app/components/app.tsx
+> git ls-files --stage -- /home/hessine/Bureau/github/Accretio_Dashboard/app/components/app.tsx
+> git cat-file -s efd1a77ec0557267f7b94a2c50bcbcfe76f9e700
+> git show :app/components/CL.tsx
+> git ls-files --stage -- /home/hessine/Bureau/github/Accretio_Dashboard/app/components/CL.tsx
+> git cat-file -s 6665b2cc7f1630ed3d5f546f3ada78c452a1e8e7
+> git check-ignore -v -z --stdin
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git show :app/components/ContainerListItem.tsx
+> git ls-files --stage -- /home/hessine/Bureau/github/Accretio_Dashboard/app/components/ContainerListItem.tsx
+> git cat-file -s b72df1f32b398d84c1afa754b64f7eb87cb9bbd9
+> git check-ignore -v -z --stdin
+> git show :app/components/containerListItem.tsx
+> git ls-files --stage -- /home/hessine/Bureau/github/Accretio_Dashboard/app/components/containerListItem.tsx
+> git cat-file -s ebcfd6a6257b23819f5a24350d59e45d7b76c666
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git check-ignore -v -z --stdin
+> git show :app/components/containerList.tsx
+> git ls-files --stage -- /home/hessine/Bureau/github/Accretio_Dashboard/app/components/containerList.tsx
+> git cat-file -s cbcbf3b236b685a18f328b1eb2fd0ba76a717904
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git check-ignore -v -z --stdin
+> git show :app/components/ContainerListItem2.tsx
+> git ls-files --stage -- /home/hessine/Bureau/github/Accretio_Dashboard/app/components/ContainerListItem2.tsx
+> git cat-file -s da7938dd3f3d494a15d52a1d191e1b67d8f6e80c
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template

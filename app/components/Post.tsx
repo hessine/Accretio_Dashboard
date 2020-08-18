@@ -40,7 +40,7 @@ class Post extends React.Component{
   async postData(value) {
 
 
-    fetch('http://localhost:6789/back', {
+    fetch('http://localhost:6789/rund', {
       method: 'POST',
       headers: {
           'Content-Type': 'application/json'
@@ -61,7 +61,7 @@ class Post extends React.Component{
   async deleteData(value) {
 
 
-    fetch('http://localhost:6789/delete', {
+    fetch('http://localhost:6789/deleteD', {
       method: 'POST',
       headers: {
           'Content-Type': 'application/json'
@@ -154,7 +154,6 @@ class Post extends React.Component{
 
 
 export default Post ;
-
 
 
 

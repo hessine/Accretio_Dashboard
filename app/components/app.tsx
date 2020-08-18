@@ -9,12 +9,10 @@ import NavBar from "./NavBar";
 import Dashboard from "./Dashboard";
 import Stopped from"./Stopped";
 import { NewContainerDialog } from "./newContainerModal";
-import Upload from "./Upload";
-import Try from "./Try";
+
 import Post from "./Post";
-import File from "./File";
-import Env from "./Env";
-import Login from "./Login";
+
+import Micro from "./Micro";
 
 
 const Header = styled.div`
@@ -52,34 +50,18 @@ export const AppComponent: React.FC<{}> = () => {
           
         </Header>
         <NavBar />
-        <Route exact path="/" component={() => <Login/>} />
+        
+        <Route exact path="/" component={() => <Redirect to="/dashboard" />} />
         <Route exact path="/dashboard" component={() => <Dashboard />} />
         <Route exact path="/stop" component={() => <Stopped />} />
-        <Route exact path="/about" component={() => <Upload/>} />
-        <Route exact path="/post" component={() => <Post/>} />
-        <Route exact path="/file" component={() => <File/>} />
-        <Route exact path="/try" component={() => <Try/>} />
-        <Route exact path="/env" component={() => <Env/>} />
+        <Route exact path="/micro" component={() => <Micro />} />
+        <Route exact path="/post" component={() => <Post />} />
+      
+       </div>
+       </Router>
     
 
 
-        {<Route
-          exact
-          path="/new/container"
-          component={() => <p>New Container just trigger model</p>}
-        /> }
-        <Route
-          exact
-          path="/cluster/start"
-          component={() => <Upload/>} />
-        
-        <Route
-          exact
-          path="/cluster/create"
-          component={() => <p>Cluster Create</p>}
-        />
-        <NewContainerDialog id="newContainerModal" onRunImage={onRunImage} />
-      </div>
-    </Router>
+     
   );
 };

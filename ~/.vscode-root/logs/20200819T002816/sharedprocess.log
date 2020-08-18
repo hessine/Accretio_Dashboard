@@ -1,0 +1,3 @@
+[2020-08-19 00:28:20.910] [sharedprocess] [info] main {"machineId":"28625c51d32b4ff5b6cdd72a3501154e7c90ddc3ecc2514a8926613f295316bd","windowId":2}
+[2020-08-19 00:28:20.958] [sharedprocess] [error] [File Watcher (node.js)] Error: ENOENT: no such file or directory, stat '/home/hessine/Bureau/github/Accretio_Dashboard/~/.vscode-root/User/snippets'
+[2020-08-19 00:29:00.933] [sharedprocess] [info] Starting to clean up unused language packs.

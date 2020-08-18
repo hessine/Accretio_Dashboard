@@ -1,0 +1,20 @@
+Looking for git in: git
+Using git 2.17.1 from git
+> git rev-parse --show-toplevel
+> git rev-parse --git-dir
+Open repository: /home/hessine/Bureau/github/Accretio_Dashboard
+> git status -z -u
+> git show :app/components/ContainerListItem.tsx
+> git ls-files --stage -- /home/hessine/Bureau/github/Accretio_Dashboard/app/components/ContainerListItem.tsx
+> git check-ignore -v -z --stdin
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git cat-file -s b72df1f32b398d84c1afa754b64f7eb87cb9bbd9
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git show :app/components/Dashboard.tsx
+> git ls-files --stage -- /home/hessine/Bureau/github/Accretio_Dashboard/app/components/Dashboard.tsx
+> git cat-file -s 73afdaac95f85a51e02cf445d984ce9ddc90dc24
