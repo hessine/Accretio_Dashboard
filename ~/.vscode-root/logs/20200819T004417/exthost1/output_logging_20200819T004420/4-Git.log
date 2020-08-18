@@ -102,3 +102,33 @@ Open repository: /home/hessine/Bureau/github/Accretio_Dashboard
 > git show :server.js
 > git ls-files --stage -- /home/hessine/Bureau/github/Accretio_Dashboard/server.js
 > git cat-file -s 76118842c443ec1d8f3ff0e4542f1235b6a1d6f4
+> git status -z -u
+> git ls-files --stage -- /home/hessine/Bureau/github/Accretio_Dashboard/server.js
+> git cat-file -s 6780b91794732cc1c4fa5c85324be34ca15f68a0
+> git show :server.js
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git ls-files --stage -- /home/hessine/Bureau/github/Accretio_Dashboard/server.js
+> git cat-file -s 6780b91794732cc1c4fa5c85324be34ca15f68a0
+> git show :server.js
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
