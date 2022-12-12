@@ -33,7 +33,7 @@
     "classnames": "^2.2.6",
     "cors": "^2.8.5",
     "dockerode": "^3.0.2",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "i": "^0.3.6",
     "list-react-files": "^0.2.0",
     "lodash": "^4.17.15",
